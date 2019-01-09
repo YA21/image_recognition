@@ -27,6 +27,4 @@ def preprocess_images(images_dir, image_size=50):
     X /= 255.0
     Y = np_utils.to_categorical(Y, len(classes))
 
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2)
-
-    return X_train, X_test, y_train, y_test
+    return X, Y
