@@ -27,4 +27,4 @@ def preprocess_images(images_dir, image_size=50):
     X /= 255.0
     Y = np_utils.to_categorical(Y, len(classes))
 
-    return X, Y
+    return X, Y, class_index
