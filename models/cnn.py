@@ -6,7 +6,7 @@ from keras.layers.core import Dense, Dropout, Activation, Flatten
 def cnn_model(input_shape, num_classes):
     model = Sequential()
 
-    model.add(Conv2D(filters=32, kernel_size=(3,3), strides=(1,1), padding="same"))
+    model.add(Conv2D(filters=32, kernel_size=(3,3), strides=(1,1), padding="same", input_shape=input_shape))
     model.add(Activation("relu"))
     model.add(Conv2D(filters=64, kernel_size=(3,3)))
     model.add(Activation("relu"))
