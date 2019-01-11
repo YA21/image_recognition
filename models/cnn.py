@@ -20,8 +20,10 @@ def cnn_model(input_shape, output_layer_num):
     model.add(Activation("softmax"))
 
     if output_layer_num == 1:
-        model.compile(loss="binary_crossentropy", optimizer="SGD", metrics=["accuracy"])
+        loss="binary_crossentropy"
     else:
-        model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
+        loss="categorical_crossentropy"
+    
+    model.compile(loss=loss, optimizer="SGD", metrics=["accuracy"])
 
     return model
