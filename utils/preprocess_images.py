@@ -5,6 +5,10 @@ from PIL import Image
 from sklearn.model_selection import train_test_split
 from keras.utils import np_utils
 
+sys.path.append(os.path.dirname(__file__))
+
+from augment_data import augment_data 
+
 def preprocess_images(images_dir, image_size=50):
     X, Y = [], []
     class_index = {}
@@ -19,6 +23,12 @@ def preprocess_images(images_dir, image_size=50):
             data = np.asarray(image)
             X.append(data)
             Y.append(index)
+
+            """
+            augmented_data = augment_data(data)
+            X += augmented_data
+            Y += [index]*len(augmented_data)
+            """
 
     X = np.array(X)
     Y = np.array(Y)
